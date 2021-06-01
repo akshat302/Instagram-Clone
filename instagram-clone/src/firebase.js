@@ -1,9 +1,13 @@
-import firebase from 'firebase';
-
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+require('firebase/auth');
+require('firebase/storage');
 {/* initalizing the firebase app*/}
+
 const firebaseApp = firebase.initializeApp({
     apiKey: "AIzaSyAAD6Qh0iVA-3l2zAtWoUKPeJuueoCjMlY",
     authDomain: "instagram-clone-f23da.firebaseapp.com",
+    databaseURL: "https://instagram-clone-f23da-default-rtdb.firebaseio.com",
     projectId: "instagram-clone-f23da",
     storageBucket: "instagram-clone-f23da.appspot.com",
     messagingSenderId: "130429568244",
@@ -16,4 +20,4 @@ const auth = firebase.auth();
 const storage = firebase.storage();
 
   
-export default { db, auth, storage };
+export default db ;
