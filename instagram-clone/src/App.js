@@ -6,7 +6,7 @@ import { auth, db } from './firebase';
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, ButtonGroup, Input } from '@material-ui/core';
-
+import ImageUpload from './Components/ImageUploadComponent';
 
 function getModalStyle() {
   const top = 50;
@@ -40,7 +40,7 @@ function App() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [user, setUser] = useState(null);
-  const[openSignIn, setOpenSignIn] = useState(false);
+  const [openSignIn, setOpenSignIn] = useState(false);
 
   // useEffect runs a piece of code based on a specific condition
   useEffect( () => {
@@ -66,7 +66,7 @@ function App() {
 
   useEffect(() => {
     //this is where the code runs
-    db.collection('posts').onSnapshot(snapshot => {
+    db.collection('posts').orderBy('timestamp','desc').onSnapshot(snapshot => {
       //every time a new post is added, this code fires.
       setPosts(snapshot.docs.map(doc => ({
         id: doc.id,
@@ -99,9 +99,16 @@ function App() {
     
     setOpenSignIn(false);
   }
+
   return (
     <div className="App">
-
+      
+      { user?.displayName ? (
+        <ImageUpload username={user.displayName}/>
+      ) : (
+        <h3>Sorry You need to login to upload</h3>
+      )}
+      
       <Modal
           open={open}
           onClose={() => setOpen(false)}>
