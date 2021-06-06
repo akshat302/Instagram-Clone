@@ -73,7 +73,7 @@ function App() {
         post: doc.data()
       })));
     })
-  },[]);
+  },[posts]);
    
   const signUp = (event) => {
     event.preventDefault();
@@ -188,7 +188,7 @@ function App() {
       <div className="app_posts">
           {
           posts.map(({id, post}) => (
-              <Post key={id} postId={key} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
+              <Post key={id} postId={id} username={post.username} caption={post.caption} user={user} imageUrl={post.imageUrl} />
             ))
           }
       </div>
