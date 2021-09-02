@@ -10,8 +10,8 @@
 
 <h1>Installation - Development </h1>
 <ul>
-    <li> Clone this repo to your local machine using https://github.com/akshat302/Instagram-Clone-React.git </li>
-    <li> Install npm dependencies using npm install </li>
+    <li> Clone this repo to your local machine using - git clone https://github.com/akshat302/Instagram-Clone-React.git </li>
+    <li> Install npm dependencies using - npm install </li>
     <li> npm run to run the web app on your local host </li>
 </ul>
 
